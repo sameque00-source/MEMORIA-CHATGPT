@@ -1,21 +1,21 @@
 # MEMORIA-CHATGPT
 
-Memória persistente de contexto, preferências e decisões úteis entre conversas.
+Memória persistente de contexto, decisões, estado de projetos e regras de continuidade entre chats.
+
+## Começar um novo chat
+Leia primeiro:
+- `INICIO-NOVO-CHAT.md`
+- `ESTADO-ATUAL-OPENCHATCUT.md`
+- `PROJETOS/OPENCHATCUT.md`
+- `DECISOES/OPENCHATCUT.md`
+- `PLANOS/OPENCHATCUT-NEXT.md`
+- `REFERENCIAS-DESIGN/OPENCHATCUT-IMAGENS.md`
+
+Depois inspecione o projeto/repositório atual antes de tomar decisões.
 
 ## Regra de segurança
+Este repositório está público. Não colocar aqui chaves, tokens, senhas, cookies, credenciais ou dados pessoais sensíveis.
 
-Este repositório está atualmente **público**. Não colocar aqui:
-- chaves de API, tokens, senhas ou cookies;
-- dados pessoais sensíveis;
-- credenciais de serviços;
-- conteúdo privado de projetos.
-
-Para uma memória completa, o repositório deve ser colocado como **Privado** no GitHub.
-
-## Organização
-
-- `PREFERENCIAS.md` — preferências de comunicação e trabalho.
-- `PROJETOS/OPENCHATCUT.md` — contexto técnico de alto nível do OpenChatCut.
-- `CONTEXTO-GERAL.md` — contexto geral não sensível.
-- `DECISOES/` — decisões importantes.
-- `PLANOS/` — planos e próximos passos.
+## Princípio central
+Esta memória existe para evitar que um novo chat reinicie o trabalho:
+recuperar contexto -> verificar estado real -> continuar de onde parou.
