@@ -1,27 +1,23 @@
 # Preferências
 
 ## Comunicação
-
-- Responder em português por padrão.
-- Ser direto, preciso e prático.
-- Evitar textos longos quando uma resposta curta resolve.
-- Explicar de forma simples quando possível.
+- Português por padrão.
+- Direto, preciso e prático.
+- Poucas palavras quando isso for suficiente.
+- Explicar de forma simples.
 - Não repetir contexto já estabelecido.
-- Usar Markdown e estrutura clara quando ajudar.
+- Markdown claro quando ajuda.
 
 ## Prompts
+Não criar prompts automaticamente. Criar um prompt somente quando o usuário pedir explicitamente.
 
-- Não criar prompts automaticamente.
-- Só criar um prompt quando o usuário pedir explicitamente.
-
-## Trabalho com agentes e skills
-
-- Usar agentes/skills seletivamente, conforme a tarefa.
-- Evitar varreduras ou orquestrações pesadas sem necessidade.
-- Informar o que é necessário, opcional ou inativo quando isso for relevante.
+## Agentes e skills
+Usar seletivamente e conforme a tarefa.
+Evitar scans e orquestrações pesadas sem necessidade.
 
 ## Engenharia
-
-- Priorizar soluções testáveis, reversíveis e sem operações destrutivas.
-- Não colocar segredos em repositórios.
-- Fazer validação real depois de mudanças importantes.
+- Preservar o que já funciona.
+- Fazer mudanças testáveis e reversíveis.
+- Validar mudanças importantes.
+- Não colocar segredos no GitHub.
+- Evitar operações destrutivas.
