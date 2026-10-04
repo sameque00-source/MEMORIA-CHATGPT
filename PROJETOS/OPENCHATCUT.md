@@ -1,25 +1,61 @@
 # OpenChatCut
 
 ## Visão
+Editor de vídeo com IA, local-first, com agente conversacional capaz de ler o estado real do projeto e executar alterações reais na timeline.
 
-OpenChatCut é um editor de vídeo com IA, local-first, com agente capaz de entender pedidos em linguagem natural e executar ações reais de edição.
+## Objetivo do produto
+Não é um gerador de vídeo de uso único. Cada ação deve continuar editável: clips, tracks, captions, transitions, effects, keyframes, audio e histórico.
 
-## Direção do produto
+## Stack/arquitetura conhecida
+- TypeScript
+- React
+- Electron/Desktop
+- Remotion para preview/renderização
+- servidor local para lógica e integrações
+- MCP para agentes externos
+- ASR/transcrição local e/ou cloud
+- sistema de skills e ferramentas do agente
+- verify tests para comportamentos críticos
 
-- Edição por linguagem natural.
-- Linha do tempo e mídia como estado real do projeto.
-- IA capaz de propor e executar edições.
-- Testes de verificação para proteger comportamentos críticos.
-- Integração multimodal com roteamento automático por capacidade.
-- Futuramente, integração com navegador/Playwright para pesquisa e importação de recursos permitidos.
-- Preferência por uma configuração de provedor única quando um mesmo provedor oferecer várias modalidades.
-- Modo AUTO para escolher o melhor modelo/provedor por subtarefa e fazer fallback rápido quando necessário.
+## Repositórios
+- Desenvolvimento local: `C:\Users\User\Downloads\Aditor de videos IA\OpenChatCut-ATUAL`
+- GitHub do usuário: `sameque00-source/OpenChatCut`
+- Repositório-base/original observado: `0xsline/OpenChatCut`
 
-## Princípios
+## Direção de produto
+- agente + edição manual no mesmo projeto;
+- timeline profissional e real;
+- projeto local-first;
+- edição reversível;
+- MCP;
+- geração multimodal;
+- busca online opcional;
+- roteamento automático de modelos;
+- integração futura com browser.
 
-- Estabilizar e validar o núcleo antes de ampliar integrações.
-- Fazer mudanças incrementais e testadas.
-- Preservar o que já funciona.
-- Não reconstruir a arquitetura sem necessidade.
-- Não expor credenciais.
-- Não reutilizar conteúdo protegido por direitos autorais sem permissão.
+## Design
+O usuário quer, em uma fase posterior, que a UI deixe de ser simples/bugada e passe a seguir a linguagem visual/UX do conjunto de screenshots do projeto OpenChatCut, especialmente o `01-editor-overview.png` e os screenshots de product tour relacionados.
+
+Arquivos de referência:
+`assets/readme-pic/01-editor-overview.png`
+`assets/readme-pic/02-project-dashboard.png`
+`assets/readme-pic/03-agent-transitions.png`
+`assets/readme-pic/04-motion-graphics.png`
+`assets/readme-pic/05-effects.png`
+`assets/readme-pic/06-zoom.png`
+`assets/readme-pic/07-lut.png`
+
+Não tratar a UI atual como design final.
+
+## Regras de engenharia
+- preservar o que já funciona;
+- mudanças incrementais;
+- testes reais;
+- nenhum segredo no repositório;
+- evitar operações destrutivas;
+- não refatorar grandes blocos apenas por estética;
+- sempre diferenciar mock/teste de integração real;
+- usar agentes/skills somente quando agregarem valor.
+
+## Credenciais
+Nunca registrar API keys, tokens, cookies ou senhas nesta memória.
