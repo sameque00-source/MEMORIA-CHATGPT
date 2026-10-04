@@ -1,16 +1,21 @@
 # Contexto Geral
 
-Este arquivo guarda somente contexto de trabalho não sensível.
+## Comunicação e trabalho
+- Português por padrão.
+- Respostas diretas, objetivas e práticas.
+- Evitar repetição.
+- Automação alta, mas sem orquestração pesada sem necessidade.
 
-## Direção
-
-Construir software e workflows de IA com qualidade de produção, alta automação e pouca configuração manual.
-
-## Princípios
-
-- Automatizar sem esconder falhas.
-- Validar integrações reais, não apenas mocks.
+## Engenharia
+- Preservar trabalho existente.
+- Validar integrações reais.
+- Distinguir testes de integrações verdadeiras.
 - Preferir ferramentas oficiais ou bem mantidas.
+- Evitar operações destrutivas.
+- Não expor segredos.
+- Economizar créditos e processamento.
 - Manter decisões arquiteturais explícitas.
-- Evitar gastos desnecessários de créditos e processamento.
-- Preservar o que já funciona antes de refatorar.
+
+## Projeto prioritário
+OpenChatCut é o projeto prioritário desta memória.
+A continuidade deve começar pelo estado técnico armazenado em `ESTADO-ATUAL-OPENCHATCUT.md`.
