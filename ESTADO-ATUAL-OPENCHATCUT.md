@@ -15,6 +15,19 @@ Este snapshot contém os fatos operacionais mais recentes; as referências locai
 - Próxima ação do app: depois do restore, validar a configuração real de provider/LLM no dev server. O 401 relatado antes da formatação é histórico; reproduzir antes de declarar que ainda existe.
 
 
+## Snapshot remoto confirmado no GitHub — 2026-10-11
+
+Esta seção mais recente substitui os estados remotos históricos descritos abaixo quando houver divergência. Foi consultada a API do GitHub; nenhum comando de teste foi executado no PC recém-formatado.
+
+- `main`: HEAD `f6ed6304c7fffc3503e482d8bb08626316573fcb`; `package.json` é `0.2.14` e declara Node `>=24 <25`. Esse HEAD adiciona/contém o plano documental; o último commit de código histórico da linha main é `6a7683b0c6f1a9f6423ccc84218dcee731c6f32d`.
+- `claude/sharp-ride-bwzrzx`: HEAD `75d1342813203eda1e68d51308de98636a99eada`, versão `0.3.0`, PR [#2 aberto](https://github.com/sameque00-source/OpenChatCut/pull/2).
+- `claude/trusting-edison-7rjeej`: HEAD `6ecb623ebe590e6e2c55443bc476b8cc6475c767`, versão `0.2.15`, PR [#1 aberto](https://github.com/sameque00-source/OpenChatCut/pull/1).
+- A consulta de releases retornou lista vazia: não há GitHub Release encontrada nesse momento. A árvore de `main` não contém instalador Windows versionado.
+- Os 10 Actions runs recentes consultados eram de PRs em 2026-10-02; a série mais recente para HEAD `75d1342` retornou conclusão `success` para CI, Model validation, Windows model persistence, Windows whisper runtime e Windows MCP recovery. Não é prova de smoke test de instalador nem de edição/exportação end-to-end no PC atual.
+- O commit antigo `ef17dc5` foi citado em relatório local antes da formatação, mas não é o HEAD atual das branches remotas consultadas. Não supor que esse commit/alterações locais estejam no GitHub. Como o PC foi formatado, trabalhar apenas a partir de conteúdo remoto ou de backup verificável.
+- Próxima decisão do projeto: após restaurar o ambiente, comparar o PR #2/branch 0.3.0 com main e escolher explicitamente a base antes de clonar, executar `npm ci` e testar. Não mesclar PRs, publicar releases ou alterar código nesta etapa de recuperação.
+
+
 ## Identidade do projeto
 OpenChatCut = editor de vídeo local-first com IA, agente conversacional, linha do tempo multitrack real, edição reversível, Remotion para renderização e MCP para agentes externos.
 
