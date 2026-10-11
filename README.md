@@ -6,6 +6,7 @@ Memória persistente de contexto, decisões, estado de projetos e regras de cont
 Leia primeiro, nesta ordem:
 - `INICIO-NOVO-CHAT.md`
 - `CONTINUIDADE/OPEN-CHAT-APP-FINALIZACAO-2026-10-11.md` — estado pós-formatação, restauração do Claude Code, CodeJato e sequência de trabalho.
+- `PROJETOS/FREELLMAPI-ESTADO.md` — instalação reportada, testes, quotas e segurança do FreeLLMAPI.
 - `ESTADO-ATUAL-OPENCHATCUT.md`
 - `PROJETOS/OPENCHATCUT.md`
 - `DECISOES/OPENCHATCUT.md`
