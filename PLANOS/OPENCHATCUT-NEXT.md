@@ -2,13 +2,14 @@
 
 ## Etapa 0 — Restaurar ambiente pós-formatação
 
-1. Verificar WinGet e instalar Git da fonte oficial se estiver ausente.
+1. Verificar WinGet, `git --version`, `node --version` e `npm --version`. Embora o primeiro terminal não reconhecesse Git/Node, o relatório posterior informa Node.js LTS v24.20.0 via WinGet; confirmar no terminal atual e instalar Git da fonte oficial somente se estiver ausente.
 2. Clonar `sameque00-source/claude-code-global-backup` (privado) e ler `RESTORE-GUIDE.md`.
 3. Executar `RESTORE-WINDOWS.ps1`; inserir a chave CodeJato apenas no prompt seguro. Não aceitar comandos de marketplaces indiscriminadamente.
 4. Executar `VERIFY-RESTORE.ps1` em PowerShell normal e ler os relatórios. Corrigir falhas reais e validar Python real e Node `>=24 <25`.
 5. Conferir HEADs/branches/PRs/releases de OpenChatCut no GitHub. O checkout antigo pode ter sido perdido na formatação; não escolher `main` por hábito.
 6. Testar CodeJato pelo próprio Claude Code primeiro. Só depois investigar provider no OpenChatCut e confirmar que o plano permite chamadas do app externo.
 7. Não iniciar redesign, provider multimodal ou AUTO routing até o caminho real de chat → proposta → edição → persistência → export ser validado.
+8. FreeLLMAPI está instalado/testado segundo relatório em `D:\Projetos Claude\Provedores gratis\freellmapi`, mas é opcional e separado; não é um substituto comprovado da assinatura Claude nem do CodeJato. Não redirecionar a configuração global para ele. Detalhes: `PROJETOS/FREELLMAPI-ESTADO.md`.
 
 
 ## Fase 0 — Fechar a base
