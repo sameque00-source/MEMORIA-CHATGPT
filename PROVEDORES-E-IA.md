@@ -38,7 +38,7 @@ Nunca registrar a chave real aqui. Rotacionar uma chave caso ela tenha sido expo
 - O relatório de segurança do backup diz que o plano CodeJato foi limitado aos apps Claude e que chamadas HTTP diretas de scripts receberam 403. Testar primeiro pelo próprio Claude Code e usar o `VERIFY-RESTORE.ps1` em PowerShell normal.
 - Antes de configurar OpenChatCut, inspecionar a construção exata da URL e o protocolo requerido pelo provider. Há referências históricas à base `https://api.tn1.top` e à base `https://api.tn1.top/v1`; não concatenar/remover `/v1` por tentativa aleatória.
 - O alias `claude-opus-5-5` e um `modelUsage` informado pelo gateway não comprovam qual modelo remoto respondeu.
-- FreeLLMAPI é uma tarefa opcional e separada. Não há prova de que elimine limites oficiais da assinatura Claude. Não executar `curl | bash` diretamente no PowerShell; primeiro inspecionar o script e confirmar ambiente/runtime suportado.
+- FreeLLMAPI é opcional e separado de CodeJato. Sua instalação foi relatada em 2026-10-11; consulte `PROJETOS/FREELLMAPI-ESTADO.md`. Não há prova de que elimine limites oficiais da assinatura Claude; não executar `curl | bash` diretamente no PowerShell nem reinstalar sem necessidade.
 
 ## FreeLLMAPI — instalação reportada em 2026-10-11
 
