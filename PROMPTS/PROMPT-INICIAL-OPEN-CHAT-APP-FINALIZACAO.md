@@ -74,6 +74,7 @@ Não execute `curl -fsSL https://freellmapi.co/install.sh | bash` diretamente no
 FreeLLMAPI não comprova remover limites oficiais da assinatura Claude. Os provedores gratuitos têm quotas/filas próprias e a resposta de AtlasCloud/Kilo ou Poolside não é o modelo oficial Anthropic Opus 5.5. O script `usar-no-claude-code.ps1` foi descrito como ativação apenas por terminal; não substituir a configuração global.
 
 Prioridade: restaurar Claude Code pelo backup privado, recolocar a chave CodeJato no prompt oculto do restaurador e executar VERIFY-RESTORE. A chave real nunca deve ser pedida no chat nem colocada em arquivo público.
+
 ## PORTUGUÊS E NOME DO CHAT
 Responda e documente tudo em português brasileiro. O usuário quer a interface e as instruções do Claude em português sempre que suportado; a configuração anterior de workspace tinha Brazilian Portuguese, mas a tradução de todos os elementos da interface depende da versão/app. Use o título desejado: Open Chat App — Finalização App. Se não for possível mudar o título pela interface/ação disponível, informe apenas que o usuário precisa renomear manualmente na lateral.
 
