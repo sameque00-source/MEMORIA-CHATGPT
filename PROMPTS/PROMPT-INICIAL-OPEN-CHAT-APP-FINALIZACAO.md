@@ -1,5 +1,16 @@
 # PROMPT INICIAL — Open Chat App / Finalização App
 
+## ESTADO MAIS RECENTE — PRIORIDADE SOBRE RELATOS HISTÓRICOS
+
+- O nome desejado para esta conversa é **Open Chat App — Finalização App**.
+- O PC já foi formatado; o perfil atual é `C:\Users\sameq`.
+- A tela do Claude Code mostrava a tarefa “FreeLLMAPI instalação e configuração” parada numa pergunta de 3 etapas. O agente afirmava que Node.js não estava instalado e oferecia instalá-lo via WinGet. Depois, o usuário mostrou um PowerShell em que `node --version` e `git --version` não foram reconhecidos. Um relatório separado afirma que Node.js v24.20.0 foi instalado e `npm install` terminou; **há um conflito de evidências**. Antes de qualquer instalação, testar num PowerShell recém-aberto `winget --version`, `where.exe node`, `node --version`, `where.exe npm`, `npm --version`, `where.exe git` e `git --version`. Instalar automaticamente via fonte oficial somente o que estiver ausente, e reabrir o terminal.
+- Faça o máximo de trabalho seguro sem me perguntar de novo a cada passo. Pergunte apenas se houver bloqueio real, autenticação/consentimento inevitável ou um segredo que eu precise inserir. A única entrada secreta esperada nesta etapa é a chave CodeJato, no prompt oculto de `RESTORE-WINDOWS.ps1`; nunca peça para eu colar a chave no chat ou em um arquivo público.
+- Prioridade: (1) confirmar ferramentas; (2) restaurar Claude Code pelo backup privado `sameque00-source/claude-code-global-backup`; (3) executar `VERIFY-RESTORE.ps1`; (4) inserir/testar CodeJato pelo Claude Code; (5) selecionar a branch real do OpenChatCut com base nos HEADs/PRs atuais; (6) instalar dependências e validar o aplicativo de ponta a ponta.
+- FreeLLMAPI é opcional e separado de CodeJato. O relatório coloca a cópia em `D:\Projetos Claude\Provedores gratis\freellmapi`, com endpoint `127.0.0.1:3001`, mas seus resultados precisam ser confirmados localmente. Não execute `curl -fsSL https://freellmapi.co/install.sh | bash` no PowerShell e não reinstale cegamente. Não mude o Claude Code global para FreeLLMAPI sem decisão explícita. Esse roteador não comprova remoção dos limites de uso oficial do Claude nem oferece Opus 5.5 oficial simplesmente por alias.
+- Reconsulta do GitHub nesta sessão: OpenChatCut privado, `main` = `f6ed6304c7fffc3503e482d8bb08626316573fcb` (versão 0.2.14), PR #2 = `75d1342813203eda1e68d51308de98636a99eada` (0.3.0, aberto) e PR #1 = `6ecb623ebe590e6e2c55443bc476b8cc6475c767` (0.2.15, aberto); nenhuma GitHub Release encontrada. Revalidar antes de agir.
+- A memória `sameque00-source/MEMORIA-CHATGPT` é pública. Nunca salvar nela segredos. Nesta missão, atualizar somente a memória; o repositório OpenChatCut e o backup privado devem permanecer intactos até a restauração e auditoria justificarem qualquer ação.
+
 Nome desejado para o chat na lateral: **Open Chat App — Finalização App**.
 
 Você está retomando um trabalho existente após a formatação do PC. Não comece do zero e não invente estado. Sua primeira missão é ler a memória no GitHub, verificar o código real e restaurar o ambiente a partir do backup. Trabalhe em português brasileiro, com máxima autonomia e de forma objetiva.
