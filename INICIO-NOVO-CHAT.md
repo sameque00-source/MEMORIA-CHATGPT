@@ -25,8 +25,8 @@ Antes de propor ações, reconstruir o contexto pela seguinte ordem:
 9. `HISTORICO/OPENCHATCUT-RECENTE.md`
 10. `REFERENCIAS-DESIGN/OPENCHATCUT-IMAGENS.md`
 11. `PREFERENCIAS.md`
-11. Do repositório privado `sameque00-source/claude-code-global-backup`, leia `README.md`, `RESTORE-GUIDE.md`, `RESTORE-WINDOWS.ps1`, `VERIFY-RESTORE.ps1`, `VERSIONS.md`, `SECURITY-REPORT.md` e `RESTORE-TEST-REPORT.md`.
-12. Inspecione o estado real do `sameque00-source/OpenChatCut` no GitHub. O checkout local antigo ficava em `C:\\Users\\User\\Downloads\\Aditor de videos IA\\OpenChatCut-ATUAL`, mas não assuma que sobreviveu à formatação; o perfil reportado agora é `C:\\Users\\sameq`.
+12. Do repositório privado `sameque00-source/claude-code-global-backup`, leia `README.md`, `RESTORE-GUIDE.md`, `RESTORE-WINDOWS.ps1`, `VERIFY-RESTORE.ps1`, `VERSIONS.md`, `SECURITY-REPORT.md` e `RESTORE-TEST-REPORT.md`.
+13. Inspecione o estado real do `sameque00-source/OpenChatCut` no GitHub. O checkout local antigo ficava em `C:\\Users\\User\\Downloads\\Aditor de videos IA\\OpenChatCut-ATUAL`, mas não assuma que sobreviveu à formatação; o perfil reportado agora é `C:\\Users\\sameq`.
 
 ## Regra principal
 A tarefa é continuar o trabalho existente. Não reconstruir o projeto do zero, não trocar arquitetura sem motivo e não apagar mudanças existentes.
