@@ -1,5 +1,19 @@
 # ESTADO ATUAL — OPENCHATCUT
 
+## SNAPSHOT OPERACIONAL PÓS-FORMATAÇÃO — 2026-10-11
+
+Este snapshot contém os fatos operacionais mais recentes; as referências locais abaixo desta seção descrevem o ambiente antes da formatação e devem ser tratadas como históricas até revalidação.
+
+- O PC foi formatado. O perfil Windows informado pelo usuário é `C:\Users\sameq`. Não assumir que `C:\Users\User\Downloads\Aditor de videos IA\OpenChatCut-ATUAL` ainda exista.
+- No PowerShell, `node --version` e `git --version` não foram reconhecidos. Instalar/verificar Git, clonar o backup privado de Claude Code, executar o restaurador e depois validar Node.js 24.x para OpenChatCut.
+- Backup do Claude Code: `sameque00-source/claude-code-global-backup` (privado), criado antes da formatação. A chave CodeJato foi excluída e precisa ser digitada apenas no prompt seguro do restaurador.
+- O `package.json` de `main` foi lido no GitHub com versão **0.2.14**, exigindo Node `>=24 <25`. O último commit de código identificado nessa linha foi `6a7683b0c6f1a9f6423ccc84218dcee731c6f32d` (24/09); o commit documental posterior `f6ed6304c7fffc3503e482d8bb08626316573fcb` (09/10) adicionou o plano de continuidade. Confirmar o HEAD exato de `main` antes de clonar.
+- A branch `claude/sharp-ride-bwzrzx` tem `package.json` versão **0.3.0** e está associada à linha de trabalho do PR #2. A branch `claude/trusting-edison-7rjeej` tinha versão **0.2.15** e era associada ao PR #1. Revalidar HEADs, estado dos PRs, CI e releases antes de escolher a branch.
+- O PR #2 estava aberto na consulta remota desta atualização; a descrição reporta funcionalidades 0.3.0+ e bloqueios históricos de Actions, secrets de E2E e auto-update. Tratar os bloqueios como informações do corpo do PR até verificar novamente nos workflows e releases.
+- Ainda não foi comprovada a execução do restaurador nesta máquina formatada. Só marcar o ambiente como restaurado depois de ler os relatórios atuais de RESTORE e VERIFY.
+- Próxima ação do app: depois do restore, validar a configuração real de provider/LLM no dev server. O 401 relatado antes da formatação é histórico; reproduzir antes de declarar que ainda existe.
+
+
 ## Identidade do projeto
 OpenChatCut = editor de vídeo local-first com IA, agente conversacional, linha do tempo multitrack real, edição reversível, Remotion para renderização e MCP para agentes externos.
 
