@@ -2,6 +2,9 @@
 
 Memória persistente de contexto, decisões, estado de projetos e regras de continuidade entre chats.
 
+## Inventário dos repositórios
+Consulte `INVENTARIO-GITHUB.md` para a lista dos repositórios acessíveis e o escopo da análise. Ele não substitui auditorias técnicas específicas.
+
 ## Começar um novo chat
 Leia primeiro, nesta ordem:
 - `INICIO-NOVO-CHAT.md`
