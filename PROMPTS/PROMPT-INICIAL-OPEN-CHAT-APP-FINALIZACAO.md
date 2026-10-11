@@ -38,8 +38,7 @@ Backup privado do Claude Code, já criado antes da formatação: https://github.
 Leia README.md, RESTORE-GUIDE.md, RESTORE-WINDOWS.ps1, VERIFY-RESTORE.ps1, BACKUP-MANIFEST.json, DEPENDENCIES.md, VERSIONS.md, SECURITY-REPORT.md, RESTORE-TEST-REPORT.md, EXCLUDED-FILES.md e docs/AUDIT-FINDINGS.md. O backup possui os scripts de restauração; não reimplemente esses scripts sem uma falha comprovada.
 
 ## SITUAÇÃO ATUAL DO WINDOWS
-Já formatei o PC. Meu perfil atual mostrado no PowerShell é C:\Users\sameq.
-Os comandos node --version e git --version não foram reconhecidos pelo PowerShell. Não presuma que Git ou Node estejam instalados nem que seus caminhos antigos existam.
+Já formatei o PC. Meu perfil Windows atual é C:\Users\sameq. O primeiro PowerShell não reconheceu `node` nem `git`; depois, o relatório do FreeLLMAPI informou Node.js LTS v24.20.0 instalado via WinGet e dependências do projeto instaladas. Verifique no terminal novo `winget --version`, `node --version`, `npm --version` e `git --version`. Não presuma que Git esteja instalado, e não reinstale Node sem conferir primeiro.
 
 ## PRIMEIRA MISSÃO — RESTAURAR O CLAUDE CODE
 1. Verifique se o WinGet está disponível.
