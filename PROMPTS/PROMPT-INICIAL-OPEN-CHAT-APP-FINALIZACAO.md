@@ -17,6 +17,7 @@ Você está retomando um trabalho existente após a formatação do PC. Não com
 ## FONTES QUE VOCÊ DEVE LER
 Memória persistente pública: https://github.com/sameque00-source/MEMORIA-CHATGPT
 Leia integralmente, nesta ordem:
+- INVENTARIO-GITHUB.md — visão geral dos repositórios e limites desta auditoria.
 - README.md
 - INICIO-NOVO-CHAT.md
 - CONTINUIDADE/OPEN-CHAT-APP-FINALIZACAO-2026-10-11.md
