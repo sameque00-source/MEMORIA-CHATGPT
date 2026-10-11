@@ -94,3 +94,31 @@ Links de inspeção:
 - MEMORIA-CHATGPT é público: nunca gravar API keys, tokens, cookies, senhas, credenciais, dados privados de sessão ou arquivos locais sensíveis.
 - Nesta atualização, apenas o repositório MEMORIA-CHATGPT foi alterado. O repositório OpenChatCut e o backup global foram consultados em leitura; seus arquivos não foram modificados.
 - Atualizar esta memória somente com fatos verificados e resultados reais, com data/commit.
+
+## ADENDO DE CONTINUIDADE — estado observado nesta sessão (2026-10-11)
+
+Este adendo complementa as seções anteriores e deve prevalecer quando houver divergência sobre o estado **atual** do Windows. Não transforma relatos anteriores em testes atuais.
+
+### Windows recém-formatado — evidências mais recentes
+- O perfil mostrado no PowerShell é `C:\Users\sameq`.
+- A captura de tela do Claude Code mostra o workspace/conversa “FreeLLMAPI instalação e configuração” com um assistente de instalação parado numa pergunta de 3 etapas. A primeira pergunta informa que Node.js não foi encontrado e sugere instalar Node.js LTS pelo WinGet. O assistente também pergunta como ligar o FreeLLMAPI ao Claude Code e se deve usar provedores sem cadastro.
+- Na saída posterior do PowerShell, tanto `node --version` quanto `git --version` falharam com “não é reconhecido como nome de cmdlet”. Isso é evidência direta daquele terminal. Existe também um relatório separado que afirma Node.js v24.20.0 instalado pelo WinGet e `npm install` concluído; os registros entram em conflito e precisam ser reconciliados com comandos executados agora.
+- Portanto, **não declarar Node/Git prontos sem testar**. Verificar num PowerShell recém-aberto: `winget --version`, `where.exe node`, `node --version`, `where.exe npm`, `npm --version`, `where.exe git`, `git --version` e, quando necessário, um Python real fora do alias de Microsoft Store. Se uma dependência necessária estiver ausente, usar o método oficial documentado pelo restaurador e reabrir o terminal após instalação.
+- O banner da interface indica um limite de uso semanal do Claude. FreeLLMAPI não é evidência de remoção desse limite: ele encaminha chamadas para provedores de terceiros, que possuem cotas próprias. Não prometer uso ilimitado nem substituir a configuração global do Claude Code.
+- O comando `curl -fsSL https://freellmapi.co/install.sh | bash` é um padrão de shell Unix. Não executá-lo diretamente no PowerShell, nem reinstalar o FreeLLMAPI sem inspecionar a cópia que o relatório situa em `D:\Projetos Claude\Provedores gratis\freellmapi`. Preservar `.env` e `.admin-credentials.json` localmente.
+
+### Estado remoto revalidado no GitHub nesta sessão
+- `sameque00-source/OpenChatCut` continua privado e tem três branches relevantes: `main` em `f6ed6304c7fffc3503e482d8bb08626316573fcb`, `claude/sharp-ride-bwzrzx` em `75d1342813203eda1e68d51308de98636a99eada` e `claude/trusting-edison-7rjeej` em `6ecb623ebe590e6e2c55443bc476b8cc6475c767`. PR #2 e PR #1 continuam abertos e não mesclados; a consulta de releases não retornou nenhuma release. `main` declara versão 0.2.14; o PR #2, 0.3.0; o PR #1, 0.2.15. Revalidar novamente antes de clonar ou escolher uma branch.
+- A árvore recursiva de `main` foi consultada no GitHub: 2.686 entradas, sem truncamento. O instalador não deve ser presumido existente só porque há workflow de desktop.
+- O plano mestre em `OpenChatCut/OPENCHATCUT-ESTADO-PLANO-MESTRE-ANTES-DE-FORMATAR.txt` foi lido. Ele registra que o commit local antigo `ef17dc5` não foi comprovado no remoto; como o PC foi formatado, não supor que ele seja recuperável sem outro backup. Trabalhar a partir de branches/commits efetivamente disponíveis.
+- `sameque00-source/claude-code-global-backup` continua privado, branch `main`; a árvore do backup foi consultada e contém os scripts de restauração/verificação e os relatórios esperados. A existência do backup e os testes feitos antes da formatação **não provam** que a restauração já foi executada nesta instalação nova.
+- `sameque00-source/MEMORIA-CHATGPT` é público. Este adendo e o prompt atualizado não devem conter a chave CodeJato nem qualquer outro segredo.
+
+### Ordem operacional obrigatória a partir daqui
+1. Resolver a diferença entre o terminal e o relatório: confirmar Winget, Git, Node/npm e PATH num PowerShell novo; instalar apenas o que estiver realmente ausente, usando fonte oficial, sem pedir aprovação repetida para cada etapa segura.
+2. Clonar o backup privado e seguir o seu `RESTORE-GUIDE.md` / `RESTORE-WINDOWS.ps1`. Inserir a chave CodeJato **somente** no prompt seguro/oculto do restaurador; nunca no chat, em arquivos da memória, logs ou comandos visíveis.
+3. Executar `VERIFY-RESTORE.ps1` num PowerShell normal novo, ler o relatório e corrigir falhas verificáveis. Distinguir instalado, carregado e funcional.
+4. Só depois confirmar CodeJato dentro do próprio Claude Code. O bloqueio HTTP 403 de chamadas diretas fora dos apps Claude está documentado; não tentar contorná-lo nem atribuí-lo automaticamente ao OpenChatCut.
+5. Continuar o OpenChatCut a partir do GitHub após comparação das branches/PRs e do estado real. Não modificar este projeto até escolher e confirmar a base correta; então seguir os testes e a validação de edição/exportação descritos acima.
+6. Manter FreeLLMAPI como opção separada, somente se o usuário decidir usá-lo. Português brasileiro nas respostas e instruções; não prometer que todos os elementos da interface tenham tradução completa.
+
