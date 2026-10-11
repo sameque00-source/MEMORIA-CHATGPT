@@ -21,6 +21,7 @@ Leia integralmente, nesta ordem:
 - INICIO-NOVO-CHAT.md
 - CONTINUIDADE/OPEN-CHAT-APP-FINALIZACAO-2026-10-11.md
 - ESTADO-ATUAL-OPENCHATCUT.md
+- PROJETOS/FREELLMAPI-ESTADO.md
 - PROJETOS/OPENCHATCUT.md
 - DECISOES/OPENCHATCUT.md
 - PLANOS/OPENCHATCUT-NEXT.md
@@ -63,9 +64,15 @@ Próxima prioridade técnica original: revalidar o caminho real de configuraçã
 Após instalar as dependências com npm ci, executar lint, testes, build e registrar os resultados efetivos. Depois validar uma edição real completa: importar mídia, analisar/transcrever, pedir proposta ao agente, aplicar mudanças à timeline, verificar persistência/reload e cancelamento, exportar o vídeo e inspecionar visualmente/escutar o arquivo final. Só então consolidar mudanças em commit seguro.
 Redesign, browser/Playwright/MCP, provider multimodal unificado e AUTO routing são etapas posteriores; não antecipar expansão antes da base funcionar.
 
-## FREE LLM API — TAREFA SEPARADA E OPCIONAL
-Também apareceu o projeto FreeLLMAPI e o comando curl -fsSL https://freellmapi.co/install.sh | bash. Não presumir que isto elimina os limites semanais ou de cinco horas da assinatura Claude. É um roteador/proxy de provedores com limites e autenticação próprios. Não executar diretamente no PowerShell e não baixar/executar scripts remotos sem primeiro inspecionar o conteúdo e confirmar o ambiente suportado. Priorize restaurar o backup e validar CodeJato antes de tomar uma decisão sobre FreeLLMAPI.
+## FREELLMAPI — JÁ INSTALADO SEGUNDO O RELATÓRIO, OPCIONAL
 
+Leia `PROJETOS/FREELLMAPI-ESTADO.md`. O relatório do usuário informa que a cópia está em `D:\Projetos Claude\Provedores gratis\freellmapi`, com Node.js LTS v24.20.0, 834 pacotes, serviço em `127.0.0.1:3001`, e testes reportados para Kilo, OVH, AI Horde e compatibilidade Anthropic. Registre os resultados como reportados pelo usuário, salvo se forem novamente testados.
+
+Não execute `curl -fsSL https://freellmapi.co/install.sh | bash` diretamente no PowerShell nem reinstale tudo cegamente. Não envie `.env` nem `.admin-credentials.json` ao GitHub. `npm audit` indicou vulnerabilidades; não usar `npm audit fix --force` sem examinar incompatibilidades.
+
+FreeLLMAPI não comprova remover limites oficiais da assinatura Claude. Os provedores gratuitos têm quotas/filas próprias e a resposta de AtlasCloud/Kilo ou Poolside não é o modelo oficial Anthropic Opus 5.5. O script `usar-no-claude-code.ps1` foi descrito como ativação apenas por terminal; não substituir a configuração global.
+
+Prioridade: restaurar Claude Code pelo backup privado, recolocar a chave CodeJato no prompt oculto do restaurador e executar VERIFY-RESTORE. A chave real nunca deve ser pedida no chat nem colocada em arquivo público.
 ## PORTUGUÊS E NOME DO CHAT
 Responda e documente tudo em português brasileiro. O usuário quer a interface e as instruções do Claude em português sempre que suportado; a configuração anterior de workspace tinha Brazilian Portuguese, mas a tradução de todos os elementos da interface depende da versão/app. Use o título desejado: Open Chat App — Finalização App. Se não for possível mudar o título pela interface/ação disponível, informe apenas que o usuário precisa renomear manualmente na lateral.
 
