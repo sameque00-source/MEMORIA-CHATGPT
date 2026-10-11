@@ -14,6 +14,7 @@ Quando um novo chat começar e o assunto for OpenChatCut, o usuário pode enviar
 ## Obrigação do novo chat
 Antes de propor ações, reconstruir o contexto pela seguinte ordem:
 
+0. `INVENTARIO-GITHUB.md` — inventário dos repositórios acessíveis, limites de auditoria e separação dos projetos.
 1. `INICIO-NOVO-CHAT.md`
 2. `CONTINUIDADE/OPEN-CHAT-APP-FINALIZACAO-2026-10-11.md`
 3. `ESTADO-ATUAL-OPENCHATCUT.md`
