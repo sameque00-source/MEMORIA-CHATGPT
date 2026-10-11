@@ -13,9 +13,9 @@ Retomar o OpenChatCut após a formatação do PC sem reiniciar o projeto do zero
 
 ## Fato crítico: o PC já foi formatado
 - A conta/perfil atual do Windows mostrado no PowerShell é C:\\Users\\sameq. Não assumir que o caminho antigo C:\\Users\\User continua sendo o perfil local.
-- No PowerShell atual, `node --version` e `git --version` falharam com “não é reconhecido”. Tratar Git e Node como ausentes ou fora do PATH até a instalação/verificação real.
+- No primeiro PowerShell pós-formatação, `node --version` e `git --version` falharam. O relatório posterior do FreeLLMAPI informa que Node.js LTS v24.20.0 foi instalado por WinGet e que `npm install` concluiu no projeto. Ainda não foi fornecida saída posterior de `node --version`, `npm --version` nem `git --version`: verificar no terminal atual. Git continua sem confirmação.
 - A saída de `winget --version` ainda não foi fornecida. Verificar se o WinGet está disponível.
-- Claude/Claude Code e a interface de FreeLLMAPI estavam sendo configurados. O usuário prefere tudo em português e quer máxima execução autônoma, com perguntas só quando houver um bloqueio real.
+- O relatório posterior informa que o FreeLLMAPI foi clonado, configurado e testado na pasta `D:\Projetos Claude\Provedores gratis\freellmapi`. Isso é um relatório fornecido pelo usuário, não uma verificação independente desta sessão. A restauração do backup global do Claude Code e a reinserção segura da chave CodeJato ainda não foram comprovadas.
 - Ainda não foi comprovado nesta sessão que o restaurador foi executado no Windows recém-formatado. Não declarar o ambiente restaurado antes de executar e verificar o resultado.
 
 ## Ação imediata: restaurar o Claude Code pelo backup privado
@@ -41,22 +41,41 @@ Fontes detalhadas: README.md, RESTORE-GUIDE.md, RESTORE-WINDOWS.ps1, VERIFY-REST
 - Separar dois testes: (1) Claude Code com gateway/credencial; (2) OpenChatCut com provider personalizado. A funcionalidade de CodeJato fora dos apps permitidos precisa ser comprovada, não presumida.
 - Reintroduzir uma chave é uma etapa que exige a participação do usuário. O script está projetado para recebê-la em modo oculto; não tente recuperar a chave de conversas, variáveis antigas ou arquivos públicos.
 
-## FreeLLMAPI: não confundir com o gateway CodeJato
-- A pesquisa/instalação de FreeLLMAPI apareceu como tarefa separada no Claude. Ela não é requisito para restaurar o backup do Claude Code nem para reconfigurar CodeJato.
-- Não afirmar que FreeLLMAPI elimina os limites oficiais de cinco horas/semana da assinatura Claude. É um roteador/proxy de provedores; fornecedores gratuitos ou chaves configuradas podem ter quotas, rate limits, fila, autenticação e disponibilidade próprias.
-- O comando `curl -fsSL https://freellmapi.co/install.sh | bash` baixa e executa um script remoto em ambiente tipo Unix; não colar diretamente em PowerShell. Se o usuário optar por FreeLLMAPI, inspecionar primeiro o script e as fontes oficiais, confirmar o ambiente compatível (por exemplo WSL, se for suportado) e revisar as alterações antes da execução.
-- Se o Claude perguntar sobre instalar Node.js LTS via WinGet, confirmar o requisito do projeto: o OpenChatCut exige Node.js 24.x (`engines` de package.json: `>=24 <25`). Verificar a versão real instalada em vez de aceitar “Node existe” como prova suficiente.
+## FreeLLMAPI — estado posterior ao relatório de 2026-10-11
 
-## Estado remoto do OpenChatCut que foi verificado
-- Repositório privado: sameque00-source/OpenChatCut; branch padrão `main`.
-- `main` tinha HEAD confirmado na consulta recente como `6a7683b0c6f1a9f6423ccc84218dcee731c6f32d`, versão 0.2.14, e commit de documentação `f6ed6304c7fffc3503e482d8bb08626316573fcb` que acrescentou o plano pré-formatação.
-- A branch `claude/sharp-ride-bwzrzx` tem package.json na versão 0.3.0 e corresponde à linha de trabalho descrita pelo PR #2. O commit/HEAD exato dessa branch deve ser consultado novamente antes do clone; não inferir que o `main` contém tudo.
-- A branch `claude/trusting-edison-7rjeej` tinha package.json na versão 0.2.15, e o PR #1 permanecia aberto na consulta efetuada.
-- PR #2 estava aberto na última consulta de 2026-10-11 (última atualização GitHub reportada em 2026-10-02) e descrevia trabalho 0.3.0+: edição longa `condense_video`, gateways customizados, OCR embutido, H.265 e estrutura OpenChatCut Studio.
-- A descrição do PR #2 reporta como bloqueios históricos: GitHub Actions falhando em 2–5 segundos/possível limite de orçamento ou minutos; secrets `OPENCHATCUT_E2E_LLM_*` ausentes; auto-update bloqueado sem release pública. Revalidar, pois estes itens vieram do texto do PR, não de um workflow recém-executado nesta sessão.
-- O estado de pré-formatação documentava ausência de release e de `.exe` na árvore de `main` em 2026-10-09. Reconsultar releases e Actions antes de afirmar o estado atual.
-- Não há checkout local do OpenChatCut disponível a partir dos dados atuais desta conversa. Depois de restaurar Git, conferir branches, PRs, commits, tags, Actions e releases antes de escolher o que clonar. Não assumir que mudanças antigas relatadas em `ef17dc5` ainda existem localmente após a formatação; só contar com o que estiver no GitHub ou em backup verificável.
+Documento dedicado: [PROJETOS/FREELLMAPI-ESTADO.md](../PROJETOS/FREELLMAPI-ESTADO.md).
 
+O relatório fornecido pelo usuário registra:
+- Pasta local: `D:\Projetos Claude\Provedores gratis\freellmapi`; origem `tashfeenahmed/freellmapi`.
+- Node.js LTS v24.20.0 instalado via WinGet; `npm install` concluiu com 834 pacotes. `npm audit` encontrou vulnerabilidades de terceiros; não foi aplicado `npm audit fix --force`.
+- Serviço configurado em `127.0.0.1:3001`, sem exposição intencional na rede. Arquivo `.env` contém chave de encriptação e deve permanecer local; `.admin-credentials.json` contém as credenciais do painel e está no `.gitignore`; nunca copiar esses arquivos para a memória/GitHub.
+- `.claude/launch.json` registra `freellmapi-server` como preview. `usar-no-claude-code.ps1` habilita o gateway apenas na janela/terminal em que é executado, sem mudar o ambiente global.
+- Provedores sem cadastro reportados: Kilo (13 modelos), OVHcloud AI Endpoints (14) e AI Horde (16). O relatório registra HTTP 200 em `/v1/models`, resposta real por `kilo-auto` (AtlasCloud via Kilo), resposta do roteador `auto` via Poolside e endpoint Anthropic-compatível `/v1/messages`.
+- Isto não comprova acesso ilimitado. O relatório menciona quotas/rate limits aproximados de Kilo (~200 requisições/hora/IP) e OVH (~2 requisições/minuto/IP/modelo), além da disponibilidade variável dos provedores gratuitos.
+- Os modelos que responderam foram modelos de terceiros; um slot/alias com nome Claude/Opus não significa o modelo oficial Anthropic. O relatório explicitamente não comprova Opus 5.5 real.
+- O comando `curl -fsSL https://freellmapi.co/install.sh | bash` não deve ser executado diretamente no PowerShell. O caminho local já reportado como instalado deve ser inspecionado/usado em vez de reinstalar às cegas.
+
+FreeLLMAPI é separado de CodeJato e da assinatura oficial Claude. Não é comprovado que remova limites oficiais de cinco horas/semana. Não redirecionar o Claude Code globalmente para esse gateway sem decisão explícita. Priorizar a restauração do Claude Code/CodeJato; FreeLLMAPI continua opcional e restrito ao terminal dedicado.
+## Estado remoto do OpenChatCut — verificação GitHub de 2026-10-11
+
+Dados consultados diretamente nos endpoints do GitHub durante esta atualização; não representam testes executados no PC novo.
+
+- Repositório privado: [sameque00-source/OpenChatCut](https://github.com/sameque00-source/OpenChatCut), branch padrão `main`.
+- `main`: HEAD `f6ed6304c7fffc3503e482d8bb08626316573fcb`; `package.json` versão `0.2.14`, engine Node `>=24 <25`. O commit mais recente nessa branch é documental (o plano pré-formatação); o commit de código identificado no plano é `6a7683b0c6f1a9f6423ccc84218dcee731c6f32d`.
+- `claude/sharp-ride-bwzrzx`: HEAD `75d1342813203eda1e68d51308de98636a99eada`; `package.json` versão `0.3.0`; PR [#2](https://github.com/sameque00-source/OpenChatCut/pull/2) está aberto, não mesclado.
+- `claude/trusting-edison-7rjeej`: HEAD `6ecb623ebe590e6e2c55443bc476b8cc6475c767`; versão `0.2.15`; PR [#1](https://github.com/sameque00-source/OpenChatCut/pull/1) está aberto.
+- PR #2 tem 43 commits segundo a descrição/estado remoto consultado e contém a linha 0.3.0+ (condense_video, gateways customizados, OCR incorporado, H.265 e layout Studio). Não escolher `main` automaticamente; comparar branches e decidir com evidências.
+- Releases do GitHub: nenhuma encontrada no endpoint consultado em 2026-10-11. A consulta da árvore de `main` também não encontrou instalador `.exe`/pacote de release versionado.
+- Os 10 Actions runs recentes retornados foram execuções de PR criadas em 2026-10-02; as mais recentes na branch 0.3.0 reportaram sucesso para `ci`, `Model validation`, `Windows model persistence`, `Windows whisper runtime` e `Windows MCP recovery`. Isso não prova que o fluxo de edição/exportação esteja validado neste PC nem que exista um instalador distribuído.
+- O commit local histórico `ef17dc5` foi relatado antes da formatação, mas não foi identificado como HEAD de qualquer uma das três branches remotas listadas. O checkout local antigo não pode ser presumido recuperável após a formatação; usar apenas código/commits que estejam no GitHub ou em outro backup verificável.
+- A árvore recursiva de `main` retornou 2.686 entradas e não foi marcada como truncada. O plano mestre de 2026-10-09 continua útil, mas sua advertência sobre o código local não enviado é histórica e precisa ser resolvida com os remotos atuais, sem alegar que o commit `ef17dc5` foi recuperado.
+
+Links de inspeção:
+- [Branches](https://github.com/sameque00-source/OpenChatCut/branches)
+- [PR #2](https://github.com/sameque00-source/OpenChatCut/pull/2)
+- [PR #1](https://github.com/sameque00-source/OpenChatCut/pull/1)
+- [Releases](https://github.com/sameque00-source/OpenChatCut/releases)
+- [Plano pré-formatação](https://github.com/sameque00-source/OpenChatCut/blob/main/OPENCHATCUT-ESTADO-PLANO-MESTRE-ANTES-DE-FORMATAR.txt)
 ## Próximas tarefas do OpenChatCut, em ordem
 1. Instalar/verificar Git e Node.js 24.x; validar npm e Python real (não só o atalho da Microsoft Store).
 2. Conferir no GitHub o HEAD da branch correspondente ao PR #2 e comparar com `main`. Não clonar `main` por hábito.
